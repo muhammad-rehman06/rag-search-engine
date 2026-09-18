@@ -1,0 +1,64 @@
+# LLM / Mistral AI
+# ==============================
+mistralai
+langchain-mistralai
+
+# ==============================
+# LangChain - RAG Framework
+# ==============================
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# ==============================
+# Vector Database
+# ==============================
+chromadb
+langchain-chroma
+
+# ==============================
+# Document Loaders
+# ==============================
+pypdf
+docx2txt
+python-docx
+beautifulsoup4
+
+# ==============================
+# Embeddings
+# ==============================
+langchain-huggingface
+sentence-transformers
+
+# ==============================
+# Environment Variables
+# ==============================
+python-dotenv
+
+# ==============================
+# Web / HTTP
+# ==============================
+requests
+httpx
+
+# ==============================
+# Data Processing
+# ==============================
+numpy
+pandas
+
+# ==============================
+# UI
+# ==============================
+streamlit
+
+# ==============================
+# Optional: FAISS Vector Store
+# ==============================
+faiss-cpu
+
+# ==============================
+# Tokenization / Token Counting
+# ==============================
+tiktoken
