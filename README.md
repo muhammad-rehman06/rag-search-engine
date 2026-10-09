@@ -59,17 +59,27 @@ The application follows this RAG pipeline:
 * **PyPDF** — PDF document loading
 * **python-dotenv** — Environment variable management
 
-##  Project Structure
+## Project structure
 
-```text
-PDF-RAG-Chatbot/
-│
-├── app.py
-├── requirements.txt
-├── .env
-├── .gitignore
-└── README.md
-```
+| File | Purpose |
+|---|---|
+| `main.py` | FastAPI backend: `/upload`, `/ask` and `/health` endpoints |
+| `rag.py` | RAG logic: chunking, embeddings, MMR retrieval, Gemini with Groq fallback |
+| `app_ui.py` | Streamlit frontend that calls the API |
+| `Dockerfile` | Packages the backend so it runs the same everywhere |
+| `legacy/App.py` | Version 1: the original single-file Streamlit app |
+
+### How the project evolved
+
+**Version 1 (`legacy/App.py`)** kept the interface and the AI logic in one
+Streamlit file. It works well as a demo, but only that one interface can use it.
+
+**Version 2 (current)** separates the AI logic into a FastAPI backend and puts it
+in Docker. Any website, bot or app can now call the same backend, and the Streamlit
+page is just one possible frontend.
+
+To run the original version: `streamlit run legacy/App.py`
+(install both `requirements.txt` and `requirements-ui.txt` first).
 
 ##  Installation
 
