@@ -1,64 +1,13 @@
-# LLM / Mistral AI
-# ==============================
-mistralai
-langchain-mistralai
-
-# ==============================
-# LangChain - RAG Framework
-# ==============================
-langchain
-langchain-core
-langchain-community
-langchain-text-splitters
-
-# ==============================
-# Vector Database
-# ==============================
-chromadb
-langchain-chroma
-
-# ==============================
-# Document Loaders
-# ==============================
-pypdf
-docx2txt
-python-docx
-beautifulsoup4
-
-# ==============================
-# Embeddings
-# ==============================
-langchain-huggingface
-sentence-transformers
-
-# ==============================
-# Environment Variables
-# ==============================
-python-dotenv
-
-# ==============================
-# Web / HTTP
-# ==============================
-requests
-httpx
-
-# ==============================
-# Data Processing
-# ==============================
-numpy
-pandas
-
-# ==============================
-# UI
-# ==============================
-streamlit
-
-# ==============================
-# Optional: FAISS Vector Store
-# ==============================
-faiss-cpu
-
-# ==============================
-# Tokenization / Token Counting
-# ==============================
-tiktoken
+﻿fastapi==0.142.4
+uvicorn==0.53.0
+python-multipart==0.0.32
+python-dotenv==1.2.3
+pypdf==6.19.0
+chromadb==1.5.9
+langchain-core==1.6.3
+langchain-community==0.4.2
+langchain-text-splitters==1.1.2
+langchain-chroma==1.1.0
+langchain-mistralai==1.1.6
+langchain-google-genai==4.4.0
+langchain-groq==1.1.3
