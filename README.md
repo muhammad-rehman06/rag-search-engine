@@ -99,6 +99,9 @@ docker run -p 8000:8000 --env-file .env rehman41/pdf-rag-api
 ```
 
 Open http://localhost:8000/docs to test the API.
+To use the web interface, run the Streamlit frontend locally:
+pip install -r requirements-ui.txt
+streamlit run app_ui.py
 
 ##  Installation
 
