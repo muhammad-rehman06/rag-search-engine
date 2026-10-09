@@ -81,6 +81,25 @@ page is just one possible frontend.
 To run the original version: `streamlit run legacy/App.py`
 (install both `requirements.txt` and `requirements-ui.txt` first).
 
+## Quick start (Docker)
+
+Create a `.env` file with your own API keys. Write each line with no spaces
+around `=` and no quotes around the value:
+
+```
+GEMINI_API_KEY=your_key
+MISTRAL_API_KEY=your_key
+GROQ_API_KEY=your_key
+```
+
+Then run:
+
+```
+docker run -p 8000:8000 --env-file .env rehman41/pdf-rag-api
+```
+
+Open http://localhost:8000/docs to test the API.
+
 ##  Installation
 
 ### 1. Clone the repository
