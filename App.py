@@ -7,12 +7,16 @@ import streamlit as st
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
+from langchain_mistralai import MistralAIEmbeddings
 from langchain_chroma import Chroma
+from langchain_groq import ChatGroq
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv()
+
+GEMINI_MODEL = "gemini-3.6-flash"      # change here if the model gets renamed or retired
+GROQ_MODEL = "openai/gpt-oss-120b"  # backup model
 
 st.set_page_config(
     page_title="PDF RAG Chatbot",
@@ -167,7 +171,9 @@ if uploaded_file:
         )
 
         try:
-            llm = ChatGoogleGenerativeAI(model="gemini-3.6-flash")
+            primary = ChatGoogleGenerativeAI(model=GEMINI_MODEL, max_retries=5)
+            backup = ChatGroq(model="GROQ_MODEL", max_retries=3)
+            llm = primary.with_fallbacks([backup])
         except Exception as e:
             st.error(f"Couldn't initialize the model: {e}")
             st.stop()
@@ -231,9 +237,8 @@ if uploaded_file:
                         })
 
                     except Exception as e:
-                        error_msg = f"Something went wrong while answering: {e}"
-                        st.error(error_msg)
-                        st.session_state.messages.append({"role": "assistant", "content": error_msg})
+                        print(f"[RAG error] {e}")  # full error stays visible in your terminal
+                        st.error("The AI service is busy right now. Please try again in a moment.")
 
 else:
     st.session_state.current_file_id = None
